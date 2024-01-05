@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Graph Theory</title>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1>Graph Theory</h1>
+        <canvas id="city"></canvas>
+        <div>
+            <button onclick="addRandomPoint()" style="height: 30px; width: 120px;">Add Points</button>
+            <button onclick="removeRandomPoint()" style="height: 30px; width: 120px;">Remove Points</button>
+            <button onclick="addRandomSegment()" style="height: 30px; width: 120px;">Add Segment</button>
+            <button onclick="removeRandomSegment()" style="height: 30px; width: 200px;">Remove Segment</button>
+            <button onclick="clearGraph()" style="height: 30px; width: 120px;">Clear Graph</button>
+        </div>
+        <button onclick="editorMode()" style="height: 30px; width: 120px;">Turn On Editor</button>
+        <button onclick="viewMode()" style="height: 30px; width: 120px;">View Mode</button>
+    </div>
+    
+    
+    <script type="text/babel" src="/city/graph/graph.ts"></script>
+    <script type="text/babel" src="/city/graph/graphEditor.ts"></script>
+    <script type="text/babel" src="/city/premitives/point.ts"></script>
+    <script type="text/babel" src="/city/premitives/segment.ts"></script>
+    <script type="text/babel" src="/city/main.js"></script>
+</body>
+</html>
