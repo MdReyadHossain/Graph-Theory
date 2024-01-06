@@ -44,9 +44,11 @@ const clearGraph = () => {
     graph.disposeGraph();
     ctx.clearRect(0, 0, city.width, city.height);
     graph.draw(ctx);
+    graphEditor.selected = undefined;
 }
 
-const ctx = city.getContext('2d');
+const city: HTMLCanvasElement = document.getElementById('city') as HTMLCanvasElement;
+const ctx: CanvasRenderingContext2D = city.getContext('2d')!;
 city.height = window.innerHeight - 150;
 city.width = window.innerWidth - 200;
 

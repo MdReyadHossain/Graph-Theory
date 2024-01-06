@@ -2,14 +2,11 @@ class GraphEditor {
     canvas: HTMLCanvasElement;
     graph: Graph;
     ctx: CanvasRenderingContext2D;
-    selected: Point;
+    selected?: Point;
     constructor(canvas: HTMLCanvasElement, graph: Graph) {
         this.canvas = canvas;
         this.graph = graph;
-
-        const ctx = this.canvas.getContext('2d');
-        if (ctx === null) return;
-        this.ctx = ctx;
+        this.ctx = this.canvas.getContext('2d')!;
 
         this.#addEventListener();
     }
