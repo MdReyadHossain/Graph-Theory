@@ -36,7 +36,7 @@ const clearGraph = () => {
 };
 const city = document.getElementById("city");
 const ctx = city.getContext("2d");
-city.height = window.innerHeight - 150;
+city.height = window.innerHeight - 180;
 city.width = window.innerWidth - 200;
 const p1 = new Point(800, 200, "p1");
 const p2 = new Point(1500, 200, "p2");

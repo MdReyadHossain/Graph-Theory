@@ -14,7 +14,7 @@ class Segment {
         return this.point1.equals(point) || this.point2.equals(point);
     }
 
-    draw(ctx: CanvasRenderingContext2D, width: number = 2, color: string = 'white') {
+    draw(ctx: CanvasRenderingContext2D, width: number = 2, color: string = 'black') {
         ctx.beginPath();
         ctx.lineWidth = width;
         ctx.strokeStyle = color;

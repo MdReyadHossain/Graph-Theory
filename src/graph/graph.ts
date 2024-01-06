@@ -15,7 +15,7 @@ class Graph {
     }
 
     removePoint(point: Point) {
-        const segments: Segment[] = this.getSegmentsIncludingPoint(point);
+        const segments: Segment[] = getSegmentsIncludingPoint(point, this.segments);
         for (const segment of segments)
             this.removeSegment(segment);
 
@@ -37,16 +37,6 @@ class Graph {
 
         this.addPoint(point);
         return true;
-    }
-
-    getSegmentsIncludingPoint(point: Point) {
-        const seg: Segment[] = [];
-        for (const segment of this.segments) {
-            if (segment.includes(point))
-                seg.push(segment);
-        }
-
-        return seg;
     }
 
     addSegment(segment: Segment) {

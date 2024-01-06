@@ -9,7 +9,7 @@ class Segment {
   includes(point) {
     return this.point1.equals(point) || this.point2.equals(point);
   }
-  draw(ctx, width = 2, color = "white") {
+  draw(ctx, width = 2, color = "black") {
     ctx.beginPath();
     ctx.lineWidth = width;
     ctx.strokeStyle = color;
