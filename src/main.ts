@@ -49,8 +49,8 @@ const clearGraph = () => {
 
 const city: HTMLCanvasElement = document.getElementById('city') as HTMLCanvasElement;
 const ctx: CanvasRenderingContext2D = city.getContext('2d')!;
-city.height = window.innerHeight - 180;
-city.width = window.innerWidth - 200;
+city.height = window.innerHeight - 200;
+city.width = window.innerWidth - 50;
 
 const p1 = new Point(800, 200, 'p1');
 const p2 = new Point(1500, 200, 'p2');
