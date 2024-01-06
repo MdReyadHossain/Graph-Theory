@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Graph Theory</title>
+</head>
+<body>
+    <div>
+        <h1>Graph Theory</h1>
+        <canvas id="city"></canvas>
+        <div>
+            <button onclick="addRandomPoint()" style="height: 30px; width: 120px;">Add Points</button>
+            <button onclick="removeRandomPoint()" style="height: 30px; width: 120px;">Remove Points</button>
+            <button onclick="addRandomSegment()" style="height: 30px; width: 120px;">Add Segment</button>
+            <button onclick="removeRandomSegment()" style="height: 30px; width: 200px;">Remove Segment</button>
+            <button onclick="clearGraph()" style="height: 30px; width: 120px;">Clear Graph</button>
+        </div>
+        <button onclick="editorMode()" style="height: 30px; width: 120px;">Turn On Editor</button>
+        <button onclick="viewMode()" style="height: 30px; width: 120px;">View Mode</button>
+    </div>
+    
+    
+    <script src="/src/graph/graph.js"></script>
+    <script src="/src/graph/graphEditor.js"></script>
+    <script src="/src/premitives/point.js"></script>
+    <script src="/src/premitives/segment.js"></script>
+    <script src="/src/main.js"></script>
+</body>
+</html>
