@@ -41,7 +41,7 @@ class Graph {
 
     addSegment(segment: Segment) {
         const n: number = this.points.length;
-        if (!this.nC2(n))
+        if (!this.nC2(n) && !this.containSegment(segment))
             this.segments.push(segment);
         else
             return console.log('all segments filled');

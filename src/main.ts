@@ -63,12 +63,19 @@ const s3 = new Segment(p3, p4);
 const s4 = new Segment(p4, p2);
 const s5 = new Segment(p4, p1);
 const graph = new Graph([p1, p4], [s5]);
-const graphEditor = new GraphEditor(city, graph);
+const viewPort = new ViewPort(city);
+const graphEditor = new GraphEditor(viewPort, graph);
 
 const animate = () => {
     ctx.clearRect(0, 0, city.width, city.height);
+    ctx.save();
+    ctx.translate(viewPort.center.x, viewPort.center.y);
+    ctx.scale(1 / viewPort.view, 1 / viewPort.view);
+    const offset = viewPort.getOffset();
+    ctx.translate(offset.x, offset.y);
     graphEditor.display();
-    const req = requestAnimationFrame(animate);
+    ctx.restore();
+    requestAnimationFrame(animate);
 };
 
 animate();

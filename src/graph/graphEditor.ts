@@ -1,13 +1,15 @@
 class GraphEditor {
     canvas: HTMLCanvasElement;
+    viewPort: ViewPort;
     graph: Graph;
     ctx: CanvasRenderingContext2D;
     selected?: Point | null;
     hovered?: Point | null;
     drag: boolean;
     mouse: Point;
-    constructor(canvas: HTMLCanvasElement, graph: Graph) {
-        this.canvas = canvas;
+    constructor(viewPort: ViewPort, graph: Graph) {
+        this.viewPort = viewPort;
+        this.canvas = viewPort.canvas;
         this.graph = graph;
         this.drag = false;
         this.mouse = new Point(0, 0);
@@ -30,21 +32,23 @@ class GraphEditor {
             }
         });
         this.canvas.addEventListener('mousemove', (event) => {
-            this.mouse = new Point(event.offsetX, event.offsetY);
-            this.hovered = getNearestPoints(this.mouse, this.graph.points, 18);
+            this.mouse = this.viewPort.getPointer(event);
+            this.hovered = getNearestPoints(this.mouse, this.graph.points, 18 * this.viewPort.view);
             if (this.drag && this.selected) {
                 this.selected.x = this.mouse.x;
                 this.selected.y = this.mouse.y;
             }
         });
-        this.canvas.addEventListener('contextmenu', (event) => {
-            event.preventDefault();
-            if (this.selected)
-                this.selected = null;
-            else if (this.hovered)
-                this.#removePoint(this.hovered);
-        });
+        this.canvas.addEventListener('contextmenu', this.#cancelAction.bind(this));
         this.canvas.addEventListener('mouseup', () => this.drag = false);
+    }
+
+    #cancelAction(event: MouseEvent) {
+        event.preventDefault();
+        if (this.selected)
+            this.selected = null;
+        else if (this.hovered)
+            this.#removePoint(this.hovered);
     }
 
     #removePoint(point: Point) {

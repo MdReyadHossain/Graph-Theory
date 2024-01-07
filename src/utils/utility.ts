@@ -1,5 +1,5 @@
 const selectToAddSegment = (graph: Graph, point1: Point, point2: Point) => {
-        graph.addSegment(new Segment(point1, point2));
+    graph.addSegment(new Segment(point1, point2));
     point1 = point2;
 }
 
@@ -26,6 +26,18 @@ const getNearestPoints = (newPoint: Point, points: Point[], threshold: number) =
         }
     }
     return nearestPoint;
+}
+
+const add = (point1: Point, point2: Point) => {
+    return new Point(point1.x + point2.x, point1.y + point2.y);
+}
+
+const subtract = (point1: Point, point2: Point) => {
+    return new Point(point1.x - point2.x, point1.y - point2.y);
+}
+
+const scale = (point: Point, scaler: number) => {
+    return new Point(point.x * scaler, point.y * scaler);
 }
 
 const distanceBetweenPoint = (point1: Point, point2: Point) => {

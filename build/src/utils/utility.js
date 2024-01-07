@@ -24,6 +24,15 @@ const getNearestPoints = (newPoint, points, threshold) => {
   }
   return nearestPoint;
 };
+const add = (point1, point2) => {
+  return new Point(point1.x + point2.x, point1.y + point2.y);
+};
+const subtract = (point1, point2) => {
+  return new Point(point1.x - point2.x, point1.y - point2.y);
+};
+const scale = (point, scaler) => {
+  return new Point(point.x * scaler, point.y * scaler);
+};
 const distanceBetweenPoint = (point1, point2) => {
   return Math.hypot(point1.x - point2.x, point1.y - point2.y);
 };
