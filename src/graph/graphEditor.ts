@@ -32,7 +32,7 @@ class GraphEditor {
             }
         });
         this.canvas.addEventListener('mousemove', (event) => {
-            this.mouse = this.viewPort.getPointer(event);
+            this.mouse = this.viewPort.getPointer(event, true);
             this.hovered = getNearestPoints(this.mouse, this.graph.points, 18 * this.viewPort.view);
             if (this.drag && this.selected) {
                 this.selected.x = this.mouse.x;

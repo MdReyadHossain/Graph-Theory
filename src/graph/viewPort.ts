@@ -21,11 +21,12 @@ class ViewPort {
         this.#mouseEvent();
     }
 
-    getPointer(event: MouseEvent) {
-        return new Point(
+    getPointer(event: MouseEvent, dragOffset: boolean = false) {
+        const newPoint = new Point(
             (event.offsetX - this.center.x) * this.view - this.offset.x,
             (event.offsetY - this.center.y) * this.view - this.offset.y
         )
+        return dragOffset ? subtract(newPoint, this.drag.offset) : newPoint;
     }
 
     getOffset() {

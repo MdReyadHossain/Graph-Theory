@@ -33,7 +33,7 @@ const addRandomPoint = () => {
 }
 
 const removeRandomPoint = () => {
-    const index = Math.floor(Math.random() * graph.points.length)
+    const index = Math.floor(Math.random() * graph.points.length);
     const removeSuccress = graph.removePoint(graph.points[index]);
     ctx.clearRect(0, 0, city.width, city.height);
     graph.draw(ctx);
